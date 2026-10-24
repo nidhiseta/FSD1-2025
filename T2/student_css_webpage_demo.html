@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Aura | CSS Demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#d6ad55;--gold-light:#f5df9a;--black:#101010;--panel:#191919;--muted:#c2bcae;--white:#fffaf0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--white);line-height:1.65;background:var(--black)}
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+.navbar{position:sticky;top:0;z-index:10;background:#101010f5;border-bottom:1px solid #d6ad5540;display:flex;align-items:center;justify-content:space-between;padding:14px 7%;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.25rem;font-weight:800;color:var(--gold-light);letter-spacing:.5px}
+.logo-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#111;background:linear-gradient(135deg,#f8e5a2,#b7862f);box-shadow:0 0 18px #d6ad5540;font-size:1.35rem;transition:transform .35s,box-shadow .35s}
+.logo:hover .logo-mark{transform:rotate(-15deg) scale(1.08);box-shadow:0 0 25px #d6ad5580}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-weight:700;font-size:.94rem;position:relative;padding:7px 0;color:#f5f0e5}
+.nav-links a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .3s ease}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-links a:hover:after{width:100%}
+.menu-toggle{display:none;background:#2b2415;border:1px solid #d6ad5555;border-radius:10px;padding:8px 12px;color:var(--gold-light);cursor:pointer}
+.menu-check{position:absolute;opacity:0;pointer-events:none}
+.menu-check:focus-visible + .menu-toggle{outline:2px solid var(--gold-light);outline-offset:3px}
+.hero{min-height:480px;display:flex;align-items:center;padding:75px 8%;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.42)),url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjcwMCIgdmlld0JveD0iMCAwIDE2MDAgNzAwIj4KPGRlZnM+CiA8bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMwODA4MDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMzI0MGMiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJnbGFzcyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMzMjJiMjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMTEiLz48L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjcwMCIgZmlsbD0idXJsKCNza3kpIi8+CjxjaXJjbGUgY3g9IjEyNjAiIGN5PSIxMjAiIHI9IjkwIiBmaWxsPSIjZDZhZDU1IiBvcGFjaXR5PSIuMTgiLz4KPHJlY3QgeD0iNzgwIiB5PSIxNjAiIHdpZHRoPSI1NjAiIGhlaWdodD0iNDMwIiByeD0iNiIgZmlsbD0iIzBjMGMwYyIgc3Ryb2tlPSIjZDZhZDU1IiBzdHJva2Utd2lkdGg9IjUiLz4KPHJlY3QgeD0iODMwIiB5PSIyMTAiIHdpZHRoPSIyMTAiIGhlaWdodD0iMzIwIiBmaWxsPSJ1cmwoI2dsYXNzKSIgc3Ryb2tlPSIjOGM2YjJkIiBzdHJva2Utd2lkdGg9IjMiLz4KPHJlY3QgeD0iMTA4MCIgeT0iMjEwIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjMyMCIgZmlsbD0idXJsKCNnbGFzcykiIHN0cm9rZT0iIzhjNmIyZCIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxnIHN0cm9rZT0iI2Q2YWQ1NSIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIuNyI+PHBhdGggZD0iTTkzNSAyMTB2MzIwTTExODUgMjEwdjMyME04MzAgMzIwaDIxME0xMDgwIDMyMGgyMTAiLz48L2c+CjxyZWN0IHg9IjcwMCIgeT0iNTkwIiB3aWR0aD0iNzIwIiBoZWlnaHQ9IjE4IiBmaWxsPSIjZDZhZDU1IiBvcGFjaXR5PSIuNSIvPgo8cGF0aCBkPSJNNzMwIDU5MEw4NjAgMTIwaDQxMGwxMjAgNDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiNiNzhiMzYiIHN0cm9rZS13aWR0aD0iNiIgb3BhY2l0eT0iLjciLz4KPC9zdmc+') center/cover;overflow:hidden;border-bottom:1px solid #d6ad5530}
+.hero-content{max-width:650px;animation:fadeUp .9s ease both}
+.eyebrow{display:inline-block;color:var(--gold-light);border:1px solid #d6ad5590;padding:6px 13px;border-radius:50px;font-size:.83rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;background:#1119}
+.hero h1{font-size:clamp(2.4rem,5vw,4.3rem);line-height:1.08;margin-bottom:20px;color:var(--white);text-shadow:0 3px 16px #000}
+.hero h1 span{color:var(--gold-light)}
+.hero p{font-size:1.08rem;max-width:580px;color:#eee5d1;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0;border:2px solid transparent;border-radius:50px;padding:12px 23px;font-weight:700;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease,border-color .25s ease}
+.btn-primary{background:linear-gradient(135deg,var(--gold-light),#bc8c34);color:#14110a}
+.btn-primary:hover{background:var(--white);transform:translateY(-4px) scale(1.03);box-shadow:0 10px 25px #d6ad5540}
+.btn-outline{background:transparent;border-color:var(--gold);color:var(--gold-light)}
+.btn-outline:hover{background:var(--gold);color:#111;transform:translateY(-3px);box-shadow:0 8px 22px #d6ad5535}
+.section{padding:76px 8%}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 38px}
+.kicker{color:var(--gold);font-size:.82rem;text-transform:uppercase;letter-spacing:2px;font-weight:700}
+.section-heading h2{font-size:clamp(1.9rem,3vw,2.7rem);margin:8px 0 10px;color:var(--white)}
+.section-heading p{color:var(--muted)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:#141414}
+.about-image-wrap{position:relative;overflow:hidden;border-radius:22px;border:1px solid #d6ad5560;box-shadow:16px 16px 0 #d6ad5515}
+.about-image{display:block;width:100%;height:350px;object-fit:cover;filter:sepia(12%) brightness(.86);transition:transform .55s ease,filter .55s ease}
+.about-image-wrap:hover .about-image{transform:scale(1.07);filter:sepia(25%) brightness(1)}
+.about-copy h2{font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.2;margin:10px 0 18px}
+.about-copy h2 span{color:var(--gold)}
+.about-copy p{color:var(--muted);margin-bottom:16px}
+.about-copy .btn{margin-top:8px}
+.cards-section{background:#0d0d0d}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:linear-gradient(145deg,#202020,#151515);border:1px solid #d6ad5535;border-radius:20px;padding:30px 25px;text-align:center;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#d6ad550b,transparent 55%);pointer-events:none}
+.card{transform:translateY(0) scale(1);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .35s ease}
+.card:hover{transform:translateY(-12px) scale(1.025);border-color:var(--gold);background:linear-gradient(145deg,#292316,#171717);box-shadow:0 20px 42px #d6ad5540}
+.icon-circle{width:76px;height:76px;border-radius:50%;margin:0 auto 19px;display:grid;place-items:center;background:linear-gradient(135deg,#f6e4a6,#bd8d36);color:#17130b;font-size:2rem;box-shadow:0 0 0 7px #d6ad5512;transition:transform .4s ease,box-shadow .4s ease}
+.card:hover .icon-circle{transform:rotate(18deg) scale(1.18);box-shadow:0 0 0 10px #d6ad5530,0 0 28px #d6ad5570}
+.card .btn{transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease}
+.card .btn:hover{transform:translateY(-4px) scale(1.06);background:var(--gold);color:#111;box-shadow:0 8px 20px #d6ad5545}
+.card h3{font-size:1.25rem;margin-bottom:10px;color:var(--gold-light)}
+.card p{color:var(--muted);font-size:.96rem;margin-bottom:21px}
+.card .btn{padding:9px 18px;font-size:.9rem}
+.motion-section{background:#17130c;text-align:center}
+.motion-section .section-heading p{color:#d0c5ac}
+.motion-stage{display:flex;justify-content:center;align-items:center;gap:clamp(35px,10vw,130px);min-height:190px;flex-wrap:wrap}
+.motion-item{width:140px;display:flex;flex-direction:column;align-items:center;gap:22px;color:var(--gold-light);font-weight:700}
+.ball{width:55px;height:55px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff1bb,#d6ad55 48%,#815a1c);box-shadow:0 12px 24px #0008,0 0 20px #d6ad5540}
+.bounce-ball{animation:bounce 1.15s ease-in-out infinite alternate}
+.spin-ball{animation:spin 2.4s linear infinite}
+.spin-ball:after{content:"";display:block;width:18px;height:18px;border-radius:50%;background:#fff1b5;margin:8px 0 0 8px;box-shadow:22px 22px 0 #815a1c}
+.orbit{width:62px;height:62px;border:2px solid #d6ad5580;border-radius:50%;position:relative;animation:spin 2.4s linear infinite}
+.orbit:before{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:var(--gold-light);top:-7px;left:22px;box-shadow:0 0 15px var(--gold)}
+@keyframes bounce{0%{transform:translateY(-28px)}50%{transform:translateY(22px)}100%{transform:translateY(-28px)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+footer{border-top:1px solid #d6ad5540;padding:24px 7%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#090909;color:#aaa18f;font-size:.9rem}
+footer strong{color:var(--gold-light)}
+.footer-links{display:flex;gap:18px}
+.footer-links a:hover{color:var(--gold-light)}
+@media screen and (max-width:760px){
+ .navbar{padding:12px 5%;flex-wrap:wrap}
+ .menu-toggle{display:block}
+ .menu-toggle{display:block}
+ .nav-links{display:none;flex-direction:column;align-items:flex-start;gap:12px;width:100%;padding:12px 2px 6px}
+ .menu-check:checked ~ .nav-links{display:flex}
+ .hero{min-height:440px;padding:62px 6%;background-position:center}
+ .section{padding:58px 6%}
+ .about{grid-template-columns:1fr;gap:30px}
+ .about-image{height:280px}
+ .cards{grid-template-columns:1fr}
+ footer{padding:22px 6%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.hero-content{animation:none!important}.about-image,.card,.icon-circle,.btn{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="#home"><span class="logo-mark">✦</span><span>GOLDEN AURA</span></a>
+  <input class="menu-check" type="checkbox" id="menuCheck" aria-label="Toggle navigation">
+  <label class="menu-toggle" for="menuCheck">☰ Menu</label>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#motion">Animation</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">Elegance in every detail</span>
+    <h1>Make Every Moment <span>Golden.</span></h1>
+    <p>Discover a bold, elegant experience where timeless black meets the warmth of gold. Explore our story and see simple CSS effects come to life.</p>
+    <a class="btn btn-primary" href="#about">Discover More</a>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="about-image-wrap">
+    <img class="about-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjcwMCIgdmlld0JveD0iMCAwIDEwMDAgNzAwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJ3YWxsIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMxMTEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyYzI0MTciLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNzAwIiBmaWxsPSJ1cmwoI3dhbGwpIi8+CjxyZWN0IHg9IjYwIiB5PSI3MCIgd2lkdGg9Ijg4MCIgaGVpZ2h0PSI1MjAiIGZpbGw9IiMxNzE3MTciIHN0cm9rZT0iI2Q2YWQ1NSIgc3Ryb2tlLXdpZHRoPSI0Ii8+CjxyZWN0IHg9IjEwMCIgeT0iMTEwIiB3aWR0aD0iMzEwIiBoZWlnaHQ9IjMxMCIgZmlsbD0iIzI0MjQyNCIgc3Ryb2tlPSIjOGY2YzJkIiBzdHJva2Utd2lkdGg9IjMiLz4KPHJlY3QgeD0iNDQ1IiB5PSIxMTAiIHdpZHRoPSI0NTAiIGhlaWdodD0iMzEwIiBmaWxsPSIjMGMwYzBjIiBzdHJva2U9IiM4ZjZjMmQiIHN0cm9rZS13aWR0aD0iMyIvPgo8ZyBzdHJva2U9IiNkNmFkNTUiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iLjciPjxwYXRoIGQ9Ik01OTUgMTEwdjMxME03NDUgMTEwdjMxME00NDUgMjY1aDQ1MCIvPjwvZz4KPHJlY3QgeD0iMTIwIiB5PSI0NzAiIHdpZHRoPSI3MDAiIGhlaWdodD0iNzUiIHJ4PSIxOCIgZmlsbD0iIzI5MjkyOSIvPgo8cmVjdCB4PSIxNjUiIHk9IjQ0NSIgd2lkdGg9IjE3MCIgaGVpZ2h0PSI3MCIgcng9IjIwIiBmaWxsPSIjM2IzYjNiIi8+CjxyZWN0IHg9IjYwMCIgeT0iNTAwIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iI2I4OGEzNCIvPgo8Y2lyY2xlIGN4PSI3MDUiIGN5PSI0NzQiIHI9IjIyIiBmaWxsPSIjZDZhZDU1Ii8+CjxwYXRoIGQ9Ik04MCA1OTBoODQwIiBzdHJva2U9IiNkNmFkNTUiIHN0cm9rZS13aWR0aD0iNSIgb3BhY2l0eT0iLjUiLz4KPC9zdmc+" alt="Modern black and gold interior">
+  </div>
+  <div class="about-copy">
+    <span class="kicker">About us</span>
+    <h2>Simple ideas. <span>Beautiful impact.</span></h2>
+    <p>Golden Aura is a sample landing page designed to demonstrate how HTML and CSS can create a polished, responsive website.</p>
+    <p>Explore the image zoom, smooth transitions, glowing golden details and interactive buttons. Resize the page to see the responsive layout.</p>
+    <a class="btn btn-outline" href="#services">Explore Features</a>
+  </div>
+</section>
+
+<section class="section cards-section" id="services">
+  <div class="section-heading">
+    <span class="kicker">What makes it special</span>
+    <h2>Designed to Stand Out</h2>
+    <p>Hover over each card, icon or button to see the effects in action.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="icon-circle" aria-hidden="true">✧</div>
+      <h3>Creative Design</h3>
+      <p>Clean layouts and a refined black-and-gold colour palette create a memorable look.</p>
+    </article>
+    <article class="card">
+      <div class="icon-circle" aria-hidden="true">◇</div>
+      <h3>Smooth Effects</h3>
+      <p>CSS transitions, transforms and shadows make interactive elements feel lively.</p>
+      <a class="btn btn-outline" href="#motion">See Animation</a>
+    </article>
+    <article class="card">
+      <div class="icon-circle" aria-hidden="true">◎</div>
+      <h3>Responsive Layout</h3>
+      <p>The navbar, cards and form adapt to smaller screens using a media query.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section motion-section" id="motion">
+  <div class="section-heading">
+    <span class="kicker">CSS animation playground</span>
+    <h2>Movement with Meaning</h2>
+    <p>The bouncing ball represents energy, while the spinning ball suggests motion and momentum.</p>
+  </div>
+  <div class="motion-stage">
+    <div class="motion-item"><div class="ball bounce-ball" aria-hidden="true"></div><span>Bouncing Energy</span></div>
+    <div class="motion-item"><div class="ball spin-ball" aria-hidden="true"></div><span>Spinning Motion</span></div>
+    <div class="motion-item"><div class="orbit" aria-hidden="true"></div><span>Golden Orbit</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 <strong>Golden Aura.</strong> All rights reserved.</p>
+  <div class="footer-links"><a href="#home">Back to top</a></div>
+</footer>
+
+
+</body>
+</html>
